@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidEye", "VidEye\VidEye.csproj", "{A90D20CF-23A7-4C1C-8843-F1875373A7A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidEye.Tests", "VidEye.Tests\VidEye.Tests.csproj", "{9CB43740-4BF2-4227-880F-6BB9ED70CAB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A90D20CF-23A7-4C1C-8843-F1875373A7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A90D20CF-23A7-4C1C-8843-F1875373A7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A90D20CF-23A7-4C1C-8843-F1875373A7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A90D20CF-23A7-4C1C-8843-F1875373A7A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB43740-4BF2-4227-880F-6BB9ED70CAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB43740-4BF2-4227-880F-6BB9ED70CAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB43740-4BF2-4227-880F-6BB9ED70CAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB43740-4BF2-4227-880F-6BB9ED70CAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
