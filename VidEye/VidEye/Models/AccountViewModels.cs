@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace VidEye.Models
@@ -64,6 +65,30 @@ namespace VidEye.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FName { get; set; }
+
+        [Required]
+        [Display(Name = "Second Name")]
+        public string SName { get; set; }
+
+        [Required]
+        [Display(Name = "Date Of Birth")]
+        public DateTime dob { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string number { get; set; }
+
+        [Required]
+        [Display(Name = "Gender")]
+        public string gender { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string address { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

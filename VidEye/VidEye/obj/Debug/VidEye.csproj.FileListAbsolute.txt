@@ -80,3 +80,5 @@ C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\bin\Microsoft.Owin.Security.Mi
 C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\obj\Debug\VidEye.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\obj\Debug\VidEye.dll
 C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\obj\Debug\VidEye.pdb
+C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\bin\DAL.dll
+C:\Users\Admin\Documents\MyMVCWorks\VidEye\VidEye\bin\DAL.pdb
