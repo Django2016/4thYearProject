@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\LikeTable.cs" />
+    <Compile Include="Models\ProfileVM.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\ShareTable.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Models\UserStatus.cs" />
+    <Compile Include="Models\VideoCard.cs" />
     <Compile Include="Models\VideoComment.cs" />
     <Compile Include="Models\VideoSubscription.cs" />
     <Compile Include="Models\VideoTable.cs" />

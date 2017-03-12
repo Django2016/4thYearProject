@@ -1,0 +1,31 @@
+﻿@model VidEye.Models.VideoUploaderVM
+
+@using (Html.BeginForm("Upload", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.VideoTitle, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.VideoTitle, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.VideoDescription, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.VideoDescription, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Upload your video</label>
+        <div class="col-md-10">
+            <input type="file" name="UploadFile" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Upload video" class="btn btn-success" />
+        </div>
+    </div>
+
+}

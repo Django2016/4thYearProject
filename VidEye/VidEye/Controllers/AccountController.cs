@@ -9,14 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VidEye.Models;
+using DAL.Repository;
+using DAL.Models;
 
 namespace VidEye.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private ApplicationUserManager _userManager;       
 
         public AccountController()
         {
@@ -155,6 +157,20 @@ namespace VidEye.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //add the userprofile
+                    UserProfile userProfile = new UserProfile
+                    {
+                        Fname = model.FName,
+                        Lname = model.SName,
+                        Dob = model.dob,
+                        PhoneNumber = model.number,
+                        Gender = model.gender,
+                        Address = model.address,
+                        MemebershipID = user.Id
+                    };
+
+                    UserRep.Add(userProfile);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -163,7 +179,7 @@ namespace VidEye.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
                 AddErrors(result);
             }
@@ -449,7 +465,7 @@ namespace VidEye.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Profile");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

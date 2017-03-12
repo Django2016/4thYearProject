@@ -17,13 +17,19 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set;}
+        [MaxLength(50)]
         public string Fname { get; set; }
+        [MaxLength(50)]
         public string Lname { get; set; }
         public DateTime? Dob { get; set; }
-        public double PhoneNumber { get; set; }
+        [MaxLength(50)]
+        public string PhoneNumber { get; set; }
+        [MaxLength(10)]
         public string Gender { get; set; }
+        [MaxLength(150)]
         public string Address { get; set; }
-        public int MemebershipID { get; set; }
+        [MaxLength(128)]
+        public string MemebershipID { get; set; }
 
         public ICollection<VideoTable> Videos { get; set; }
 

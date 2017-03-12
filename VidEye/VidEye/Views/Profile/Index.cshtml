@@ -1,0 +1,21 @@
+﻿@model DAL.Models.ProfileVM
+@using VidEye.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.Partial("VideoUploader", new VideoUploaderVM())
+
+
+<div>
+    <h4>ProfileVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
