@@ -9,25 +9,22 @@ using System.Web;
 
 namespace VidEye.Models
 {
-    public class VidoeUploadManager
+    public class VideoUploadManager
     {
-        public string StreamingUri { get; set; }
-        public string ThumbnailUri { get; set; }
+        public Uri StreamingUri { get; set; }
+        public Uri ThumbnailUri { get; set; }
         private  CloudMediaContext _context = null;
         private  readonly string _mediaServicesAccountName =
            ConfigurationManager.AppSettings["MediaServicesAccountName"];
         private  readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-
-        private  readonly string _mediaFiles =
-                Path.GetFullPath(@"../..\Media");
+            ConfigurationManager.AppSettings["MediaServicesAccountKey"];     
 
         private readonly string _presetFiles =
-            Path.GetFullPath(@"../..\Presets");
+           System.Web.HttpContext.Current.Server.MapPath(@"/Presets");
 
         private  MediaServicesCredentials _cachedCredentials = null;
 
-        public VidoeUploadManager()
+        public VideoUploadManager()
         {
             // Create and cache the Media Services credentials in a static class variable.
             _cachedCredentials = new MediaServicesCredentials(
@@ -36,21 +33,21 @@ namespace VidEye.Models
             // Used the chached credentials to create CloudMediaContext.
             _context = new CloudMediaContext(_cachedCredentials);
         }
-        private IAsset GetAsset(AssetType type, IAsset inputAsset = null)
+        public IAsset GetAsset(LocalAssetType type, IAsset inputAsset = null, string filePath = "")
         {
             IAsset result;
             switch (type)
             {
-                case AssetType.AudioOnly:
+                case LocalAssetType.AudioOnly:
                     result = EncodeToAudioOnly(inputAsset, AssetCreationOptions.None); 
                     break;
-                case AssetType.EncodedMp4:
+                case LocalAssetType.EncodedMp4:
                     result = EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None); ;
                     break;
-                case AssetType.File:
-                    result = UploadFile(Path.Combine(_mediaFiles, @"BigBuckBunny.mp4"), AssetCreationOptions.None);
+                case LocalAssetType.File:
+                    result = UploadFile(filePath, AssetCreationOptions.None);
                     break;
-                case AssetType.Thumbnail:                                     
+                case LocalAssetType.Thumbnail:                                     
                 default:
                     result = GenerateThumbnail(inputAsset, AssetCreationOptions.None);
                     break;
@@ -178,6 +175,8 @@ namespace VidEye.Models
                 Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
                 Uri hlsUri = asset.GetHlsUri();
                 Uri mpegDashUri = asset.GetMpegDashUri();
+                ThumbnailUri = mpegDashUri;
+                StreamingUri = smoothStreamingUri;
 
                 // Display  the streaming URLs.
                 Console.WriteLine("Use the following URLs for adaptive streaming: ");

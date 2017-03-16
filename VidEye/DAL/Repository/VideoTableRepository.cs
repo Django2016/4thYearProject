@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    class VideoTableRepository: GenericRepository<VideoTable>
+    public class VideoTableRepository: GenericRepository<VideoTable>
     {
     }
 }

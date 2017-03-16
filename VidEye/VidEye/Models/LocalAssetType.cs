@@ -5,7 +5,7 @@ using System.Web;
 
 namespace VidEye.Models
 {
-    public enum AssetType
+    public enum LocalAssetType
     {
         File,
         Thumbnail,

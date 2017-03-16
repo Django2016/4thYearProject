@@ -17,15 +17,15 @@ namespace VidEye
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            VidEyeContext ctx = new VidEyeContext();
-            Subscription sub = new Subscription
-            {
-                Price = 10.00,
-                SubscriptionDesc = "First Sub",
-                SubscriptionDateCreated = DateTime.Now
-            };
-            ctx.Subscriptions.Add(sub);
-            ctx.SaveChanges();
+            //VidEyeContext ctx = new VidEyeContext();
+            //Subscription sub = new Subscription
+            //{
+            //    Price = 10.00,
+            //    SubscriptionDesc = "First Sub",
+            //    SubscriptionDateCreated = DateTime.Now
+            //};
+            //ctx.Subscriptions.Add(sub);
+            //ctx.SaveChanges();
         }
     }
 }

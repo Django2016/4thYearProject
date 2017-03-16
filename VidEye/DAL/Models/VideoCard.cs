@@ -20,6 +20,7 @@ namespace DAL.Models
         public int Likes { get; set; }
         public int Comments { get; set; }
         public int Rating { get; set; }
+        public string Title { get; set; }
 
     }
 }

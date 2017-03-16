@@ -12,13 +12,16 @@ namespace VidEye.Controllers
     public class BaseController : Controller
     {
         protected UserProfileRepository UserRep;
+        protected VideoTableRepository VideoRep;       
         protected UserProfile _profile;
         public BaseController()
         {
             UserRep = new UserProfileRepository();
+            VideoRep = new VideoTableRepository();
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
             if (!string.IsNullOrEmpty(User.Identity.Name))
             {
                 var userID = User.Identity.GetUserId();

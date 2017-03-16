@@ -18,3 +18,13 @@ C:\Users\Admin\Documents\franklin\4thYearProject\VidEye\DAL\bin\Debug\EntityFram
 C:\Users\Admin\Documents\franklin\4thYearProject\VidEye\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\franklin\4thYearProject\VidEye\DAL\obj\Debug\DAL.dll
 C:\Users\Admin\Documents\franklin\4thYearProject\VidEye\DAL\obj\Debug\DAL.pdb
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\DAL.dll.config
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\DAL.dll
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\DAL.pdb
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\EntityFramework.dll
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\EntityFramework.xml
+E:\Franklin 4th year Project\VidEye\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Franklin 4th year Project\VidEye\DAL\obj\Debug\DAL.dll
+E:\Franklin 4th year Project\VidEye\DAL\obj\Debug\DAL.pdb
+E:\Franklin 4th year Project\VidEye\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
