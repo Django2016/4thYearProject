@@ -4,10 +4,11 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/Scripts/AjaxModule.js"></script>
+<script src="~/Scripts/VideoModule.js"></script>
 
 <h3>Upload a new video</h3>
 @Html.Partial("VideoUploader", new VideoUploaderVM())
-
 <div>
     <h4>Your videos</h4>
     <hr />
@@ -16,12 +17,22 @@
 
 @foreach (var item in Model.VideoCards)
 {
-    <div class="col-xs-4"  onclick="ShowVideoPopUp('@item.VideoURL', @item.VideoID, '@item.Title', '@item.Thumbnail');">
+    @*<div class="col-xs-4"  onclick="ShowVideoPopUp('@item.VideoURL', @item.VideoID, '@item.Title', '@item.Thumbnail');">
         <picture>
             <source srcset="@item.Thumbnail" media="(max-width:400px)" />
             <img src="@item.Thumbnail" alt="default image" />
         </picture>        
+    </div>*@
+    <div class="col-xs-6">
+        <video class="azuremediaplayer amp-default-skin" controls width="640" height="400" poster="poster.jpg" data-setup='{"nativeControlsForTouch": false}'>
+            <source src="@item.VideoURL" type="application/vnd.ms-sstr+xml" />
+            <p class="amp-no-js">
+                This is the first Iterations of my Project. Thank you for watching
+            </p>
+        </video>
+        @Html.Partial("VideoActionPartials", item)
     </div>
+   
 }
 
 
@@ -33,13 +44,7 @@
                 <h3 class="modal-title" id="videoTitle"></h3>
             </div>
 
-            <div class="modal-body" id="videoBody">
-                <video id="vidplayer" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="" data-setup='{"nativeControlsForTouch": false}'>
-                    @*<source src="http://amsdjango.streaming.mediaservices.windows.net/75bbb2b4-9964-414c-a349-c79f99876e33/BigBuckBunny.ism/manifest" type="application/vnd.ms-sstr+xml" />
-                    <p class="amp-no-js">
-                        This is the first Iterations of my Project. Thank you for watching
-                    </p>*@
-                </video>
+            <div class="modal-body" id="videoBody">               
             </div>
 
             <div class="modal-footer">
@@ -48,6 +53,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="commentModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="videoTitle">Add a comment</h3>
+            </div>
+
+            <div class="modal-body" id="commentBody">
+                <div class="existing-comments" id="existing-comments">
+
+                </div>
+                <div class="form-group">
+                    @Html.Label("Comment", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBox("VideoComment", "",new { @class = "form-control" , @placeholder="Enter your comment"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <input type="button" class="btn btn-success" value="Post Comment" onclick="VidModule.Comment();" />                
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="clearfix">
 </div>

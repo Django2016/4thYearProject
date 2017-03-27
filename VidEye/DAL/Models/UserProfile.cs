@@ -31,17 +31,17 @@ namespace DAL.Models
         [MaxLength(128)]
         public string MemebershipID { get; set; }
 
-        public ICollection<VideoTable> Videos { get; set; }
+        public virtual ICollection<VideoTable> Videos { get; set; }
 
-        public ICollection<VideoComment> VideoComments { get; set; }
+        public virtual ICollection<VideoComment> VideoComments { get; set; }
 
-        //public ICollection<LikeTable> Likes { get; set; }
+        public virtual ICollection<LikeTable> Likes { get; set; }
 
         //public ICollection<ShareTable> Shares { get; set; }
         
         //public ICollection<UserStatus> Statuses { get; set; }
         
-        //public ICollection<Rating> Ratings { get; set; } 
+        //public virtual ICollection<Rating> Ratings { get; set; } 
 
     }
 }

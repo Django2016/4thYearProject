@@ -25,18 +25,75 @@ namespace VidEye.Controllers
         {
             ProfileVM profile = new ProfileVM
             {
-                VideoCards = VideoRep.FindAll(v => v.UserProfileID == _profile.ID).Select(v => new VideoCard
+                VideoCards = _profile.Videos.Select(v => new VideoCard
                 {
                     Thumbnail = v.Thumbnail,
                     Comments = v.VideoComments != null ? v.VideoComments.Count : 0,
                     Likes = v.Likes != null ? v.Likes.Count : 0,
-                    Rating = v.Ratings != null ? (int)v.Ratings.Average(r => r.rate) : 0,
+                    Rating = v.Ratings != null && v.Ratings.Any() ? (int)v.Ratings.Average(r => r.Rate) : 0,
                     VideoURL = v.URL,
                     VideoID = v.ID,
                     Title = v.Title
                 }).ToList()
             };          
             return View(profile);
+        }
+
+        [HttpPost]
+        public JsonResult Comment(string comment, int videoId)
+        {
+            VideoCommentRep.Add(new VideoComment
+            {
+                VideoCommentDateCreated = DateTime.Now,
+                VideoCommentDesc = comment,
+                VideoID = videoId,
+                PosterID = _profile.ID
+            });
+            var totalcomments = VideoCommentRep.FindAll(vc => vc.VideoID == videoId).Count;
+            return Json(totalcomments, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Like(int videoId)
+        {
+            var existing = LikeTableRep.Find(l => l.VideoID == videoId && l.PosterID == _profile.ID);
+            if(existing == null)
+            {
+                LikeTableRep.Add(new LikeTable
+                {
+                    LikeDateCreated = DateTime.Now,
+                    VideoID = videoId,
+                    PosterID = _profile.ID
+                });
+            }
+            else
+            {
+                LikeTableRep.Delete(existing);
+            }
+           
+            return Json("Success", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Rate(int videoId, int rate)
+        {
+            var existing = RateTableRep.Find(l => l.VideoID == videoId && l.PosterID == _profile.ID);
+            if (existing == null)
+            {
+                RateTableRep.Add(new Rating
+                {
+                    RateDateCreated = DateTime.Now,
+                    VideoID = videoId,
+                    PosterID = _profile.ID,
+                    Rate = rate
+                });
+            }
+            else
+            {
+                RateTableRep.Delete(existing);
+            }
+
+            return Json("Success", JsonRequestBehavior.AllowGet);
         }
 
 

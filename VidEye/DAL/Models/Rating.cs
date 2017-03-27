@@ -19,11 +19,11 @@ namespace DAL.Models
         public int ID { get; set; }
        // public int UserProfileID { get; set; }
         public int VideoID { get; set; }
-        public int rate { get; set; }
+        public int Rate { get; set; }
         public DateTime RateDateCreated {get; set;}
 
         //[ForeignKey("UserProfileID")]
-        public UserProfile UserProfile { get; set; }
+        public int PosterID { get; set; }
 
         [ForeignKey("VideoID")]
         public VideoTable VideoTables { get; set; }

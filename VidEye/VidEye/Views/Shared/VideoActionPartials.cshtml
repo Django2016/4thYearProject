@@ -1,0 +1,40 @@
+﻿@model DAL.Models.VideoCard
+
+
+<div class="col-xs-12 action-container">
+    <div class="row">
+        <div class="col-md-4" onclick="VidModule.Like(@Model.VideoID);">
+            <div class="row">
+                <div class="col-xs-4">
+                    <img src="~/Image/like.png" width="30px" alt="like-image" />
+                </div>
+                <div class="col-xs-8" style="padding-top:10px;">
+                    <span class="badge">@Model.Likes</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5" onclick="VidModule.ShowModal(@Model.VideoID);">
+            <div class="row">
+                <div class="col-xs-4">
+                    <img src="~/Image/commentIcon.png" width="30px" alt="comment-image" onclick="VidModule.ShowModal(@Model.VideoID);" />
+                </div>
+                <div class="col-xs-8" style="padding-top:10px;">
+                    <a href="javascript:void(0);" onclick="VidModule.ShowModal(@Model.VideoID);"> <span class="badge" id="badge-@Model.VideoID">@Model.Comments</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                @for (int i = 1; i < 6; i++)
+                {
+                    var imagename = Model.Rating >= i ? "Rating2.png" : "Rating1.png";
+                    <div class="video-rater-holder">
+                        <img src="~/Image/@imagename" class="video-rater" width="18px" alt="rating-icon" onclick="VidModule.Rate(@Model.VideoID, @i)" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>

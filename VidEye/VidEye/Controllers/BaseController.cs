@@ -12,12 +12,18 @@ namespace VidEye.Controllers
     public class BaseController : Controller
     {
         protected UserProfileRepository UserRep;
-        protected VideoTableRepository VideoRep;       
+        protected VideoTableRepository VideoRep;
+        protected VideoCommentRepository VideoCommentRep;
+        protected LikeTableRepository LikeTableRep;
         protected UserProfile _profile;
+        protected RatingRepository RateTableRep;
         public BaseController()
         {
             UserRep = new UserProfileRepository();
             VideoRep = new VideoTableRepository();
+            VideoCommentRep = new VideoCommentRepository();
+            LikeTableRep = new LikeTableRepository();
+            RateTableRep = new RatingRepository();
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {

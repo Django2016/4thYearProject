@@ -269,8 +269,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\commentIcon.png" />
+    <Content Include="Image\like.png" />
+    <Content Include="Image\Rating1.png" />
+    <Content Include="Image\Rating2.png" />
     <Content Include="Media\BigBuckBunny.mp4" />
     <Content Include="Player.html" />
+    <Content Include="Scripts\AjaxModule.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -289,6 +294,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\VideoModule.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -327,6 +333,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Shared\VideoUploader.cshtml" />
     <Content Include="Views\Profile\DisplayUpload.cshtml" />
+    <Content Include="Views\Shared\VideoActionPartials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

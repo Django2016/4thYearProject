@@ -21,8 +21,7 @@ namespace DAL.Models
         public string Title { get; set; }
         [MaxLength(200)]
         public string VideoDesc { get; set; }
-
-        [MaxLength(150)]
+       
         public string Thumbnail { get; set; }
 
         public int UserProfileID { get; set; }
@@ -33,15 +32,15 @@ namespace DAL.Models
         [ForeignKey("UserProfileID")]
         public UserProfile UserProfile { get; set; }
 
-        public ICollection<VideoComment> VideoComments { get; set; }
+        public virtual ICollection<VideoComment> VideoComments { get; set; }
 
-        public ICollection<LikeTable> Likes { get; set; }
+        public virtual ICollection<LikeTable> Likes { get; set; }
 
-        public ICollection<ShareTable> Shares { get; set; }
+        public virtual ICollection<ShareTable> Shares { get; set; }
 
         //public ICollection<VideoSubscription> VideoSubscriptions { get; set; }
 
-        public ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
 
     }
 }

@@ -22,7 +22,9 @@ namespace DAL.Models
         public string VideoCommentDesc { get; set; }
         public DateTime VideoCommentDateCreated { get; set; }
 
-        //[ForeignKey("UserProfileID")]
+        public int PosterID { get; set; }
+
+       // [ForeignKey("PosterID")]
         public UserProfile UserProfile { get; set; }
 
         public int VideoID { get; set; }

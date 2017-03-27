@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    class RatingRepository:GenericRepository<Rating>
+   public class RatingRepository:GenericRepository<Rating>
     {
     }
 }

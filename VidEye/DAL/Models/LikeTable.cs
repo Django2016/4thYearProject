@@ -18,7 +18,7 @@ namespace DAL.Models
         public int ID { get; set; }
         public int VideoID { get; set; }
        // public int UserProfileID { get; set; }
-        public int LikeDesc { get; set; }
+        public int PosterID { get; set; }
         public DateTime LikeDateCreated { get; set; }
 
        // [ForeignKey("UserProfileID")]

@@ -20,5 +20,22 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    
+}
+
+.action-container {
+    margin-top: 10px;
+}
+
+.video-rater {
+    cursor: pointer;
+}
+
+    .video-rater:hover {
+        opacity: 0.8;
+    }
+
+.video-rater-holder {
+    float: left;
+    margin-right: 5px;
 }

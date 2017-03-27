@@ -19,12 +19,16 @@ namespace DAL.Repository
         private readonly PluralizationService _pluralizer = PluralizationService.CreateService(CultureInfo.GetCultureInfo("en"));
         public GenericRepository(DbContext context)
         {
+            
             _context = context;
+
         }
 
         public GenericRepository()
         {
-            _context = new VidEyeContext();
+            var ctx = new VidEyeContext();
+            ctx.Configuration.LazyLoadingEnabled = true;
+            _context = ctx;
         }
 
         public ICollection<TObject> GetAll()

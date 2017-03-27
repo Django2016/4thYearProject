@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    class LikeTableRepository: GenericRepository<LikeTable>
+    public class LikeTableRepository: GenericRepository<LikeTable>
     {
     }
 }

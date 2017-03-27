@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    class VideoCommentRepository: GenericRepository<VideoComment>
+    public class VideoCommentRepository: GenericRepository<VideoComment>
     {
     }
 }
